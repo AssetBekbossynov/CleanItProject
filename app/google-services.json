@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "509494358683",
+    "firebase_url": "https://cleanit-f43ca.firebaseio.com",
+    "project_id": "cleanit-f43ca",
+    "storage_bucket": "cleanit-f43ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509494358683:android:3cef90c905e43518",
+        "android_client_info": {
+          "package_name": "com.example.user.cleanit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509494358683-qte6ulmp6110r6bdugh7nnlkr15f67tf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk5Wkt_wV64XTEJNGtG4b-9n7kZsBWF6M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
