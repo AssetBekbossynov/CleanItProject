@@ -34,12 +34,10 @@ class CompanyListAdapter(var context: Context, var companyDataHelpers: ArrayList
     }
 
     override fun getView(position: Int, view: View?, viewGroup: ViewGroup): View? {
-//        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        var list = companyDataHelpers as MutableList<CompanyDataHelper>
 
         val inflater = LayoutInflater.from(context)
 
-        Logger.msg("check ${companyDataHelpers[position]}")
+        Logger.msg("check ${companyDataHelpers.get(position).cleanTypes}")
 
         val v = inflater.inflate(R.layout.company_row, viewGroup, false)
 

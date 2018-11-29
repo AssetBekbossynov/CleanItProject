@@ -1,12 +1,12 @@
 package com.example.user.cleanit.main
 
-import com.example.user.cleanit.helpers.Logger
 import com.example.user.cleanit.models.CompanyDataHelper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.GenericTypeIndicator
 
 class MainPresenter(override var view: MainContract.View?) : MainContract.Presenter {
     private var mAuth = FirebaseAuth.getInstance()
@@ -14,13 +14,15 @@ class MainPresenter(override var view: MainContract.View?) : MainContract.Presen
 
     override fun logout() {
         mAuth.signOut()
+        view?.onLogoutSuccess()
     }
 
     override fun getData() {
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                view?.onGetDataSuccess(dataSnapshot.getValue() as ArrayList<CompanyDataHelper>)
-                Logger.msg("here ${dataSnapshot.getValue() as ArrayList<CompanyDataHelper>}")
+                val t = object : GenericTypeIndicator<ArrayList<CompanyDataHelper>>() {}
+                val value = dataSnapshot.getValue(t)
+                view?.onGetDataSuccess(value!!)
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

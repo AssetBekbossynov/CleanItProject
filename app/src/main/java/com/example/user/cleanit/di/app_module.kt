@@ -1,5 +1,7 @@
 package com.example.user.cleanit.di
 
+import com.example.user.cleanit.comment.CommentContract
+import com.example.user.cleanit.comment.CommentPresenter
 import com.example.user.cleanit.login.LoginContract
 import com.example.user.cleanit.login.LoginPresenter
 import com.example.user.cleanit.main.MainContract
@@ -13,6 +15,7 @@ val appModule = module {
     factory { (view: MainContract.View) -> MainPresenter(view) as MainContract.Presenter }
     factory { (view: RegistrationContract.View) -> RegistrationPresenter(view) as RegistrationContract.Presenter }
     factory { (view: LoginContract.View) -> LoginPresenter(view) as LoginContract.Presenter }
+    factory { (view: CommentContract.View) -> CommentPresenter(view) as CommentContract.Presenter }
 
 }
 

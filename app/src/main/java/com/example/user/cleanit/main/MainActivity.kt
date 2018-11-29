@@ -51,9 +51,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 //        })
         logout.setOnClickListener {
             presenter.logout()
-            val intent = Intent(this@MainActivity, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
         }
     }
 
@@ -63,18 +60,12 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun onLogoutSuccess() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(this@MainActivity, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     override fun onGetDataSuccess(list: ArrayList<CompanyDataHelper>) {
-
-//        companyDataHelpers = ArrayList()
-//
-//        for (i in 0 until list.size) {
-//            companyDataHelpers!!.add(list.get(i))
-//        }
-
-        Logger.msg("list " + list.size)
 
         val adapter = CompanyListAdapter(this@MainActivity, list)
         companiesListView.adapter = adapter
